@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Satochi', sans-serif;
+  src: url('./assets/fonts/Satoshi-Bold.otf') format('truetype');
+  src: url('./assets/fonts/Satoshi-Black.otf') format('truetype');
+}
+
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  scroll-behavior: smooth;
+}
+
+.con {
+  width: calc(100vw - 250px);
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .con {
+    width: calc(100vw - 100px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .con {
+    width: calc(100vw - 20px);
+  }
+}
