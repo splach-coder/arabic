@@ -33,12 +33,12 @@ const CoreValue = () => {
   const [confeti, setConfeti] = useState(false);
 
   const data = [
-    { option: "-50%", style: { backgroundColor: "#133E59" } },
-    { option: "-60%", style: { backgroundColor: "#153750" } },
-    { option: "-70%", style: { backgroundColor: "#133E59" } },
-    { option: "-80%", style: { backgroundColor: "#153750" } },
-    { option: "-90%", style: { backgroundColor: "#133E59" } },
-    { option: "-0%", style: { backgroundColor: "#153750" } },
+    { option: "-50%", style: { backgroundColor: "#222222" } },
+    { option: "-60%", style: { backgroundColor: "#808080" } },
+    { option: "-70%", style: { backgroundColor: "#222222" } },
+    { option: "-80%", style: { backgroundColor: "#808080" } },
+    { option: "-90%", style: { backgroundColor: "#222222" } },
+    { option: "-0%", style: { backgroundColor: "#808080" } },
   ];
 
   const handleSpinStopped = () => {
@@ -66,7 +66,7 @@ const CoreValue = () => {
     <section
       dir="ltr"
       ref={ref}
-      className="con bg-white min-h-[40vh] py-5 flex flex-col items-center gap-5 relative">
+      className="con bg-white min-h-[40vh] py-5 flex flex-col items-center gap-5 relative overflow-hidden">
       <header>
         <motion.h1
           dir="rtl"
@@ -113,26 +113,28 @@ const CoreValue = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             disabled={rolling}
-            className="px-8 py-3 bg-gradient-to-tr from-[#0F172A] to-[#13354F] font-secondary font-normal text-xl rounded-sm">
+            className="px-8 py-3 bg-gradient-to-tr from-[#808080] to-[#232323] font-secondary font-normal text-xl rounded-sm">
             {rolling ? (
               <Spinner addStyle={"w- 5 h-5 animate-spin"} />
             ) : (
-              "Spin Now"
+              "دور الآن"
             )}
           </motion.button>
         </main>
       ) : (
         <main className="flex flex-col gap-12 items-center px-2 pt-20">
           <motion.h1
+          dir="rtl"
             ref={elementRef}
             initial="hidden"
             animate={inView ? "visible" : ""}
             variants={wheelVariants}
             className="font-primary font-bold text-3xl text-red-500 flex items-center">
-            Up to <span className="text-6xl mx-5">90%</span> off
+            خصم يصل إلى <span className="text-6xl mx-5">90%</span>
           </motion.h1>
 
           <motion.button
+          dir="ltr"
             ref={elementRef}
             initial="hidden"
             animate={inView ? "visible" : ""}
@@ -140,7 +142,7 @@ const CoreValue = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             className="px-8 py-3 bg-gradient-to-tr from-red-500 to-red-300 font-secondary font-normal text-xl rounded-sm">
-            Shop now <span className="font-primary text-xl">&rarr;</span>
+            تسوق الآن <span className="font-primary text-xl">&rarr;</span>
           </motion.button>
         </main>
       )}

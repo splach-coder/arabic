@@ -24,38 +24,39 @@ const CalculatorPage = ({ result, bmi, differance, repeat }) => {
       </motion.h1>
 
       <motion.div
-        variants={titleVariants}
-        initial="hidden"
-        animate="visible"
-        className="text-center flex flex-col gap-5">
-        {bmi < 18.5 || bmi >= 25 ? (
-          <span className="text-xl text-gray-400  font-semibold leading-relaxed ">
-            <strong className="text-bold text-red-500">Uh Oh!</strong> <br />
-            You need to
+    variants={titleVariants}
+    initial="hidden"
+    animate="visible"
+    className="text-center flex flex-col gap-5">
+    {bmi < 18.5 || bmi >= 25 ? (
+        <span className="text-xl text-gray-400 font-semibold leading-relaxed">
+            <strong className="text-bold text-red-500">اوه لا!</strong> <br />
+            تحتاج إلى
             {differance.toFixed(2) < 0
-              ? " Loss About " + differance.toFixed(2) * -1 + " KG "
-              : " Gain About " + differance.toFixed(2) + " KG "}
-            to be in the perfect shape.
-          </span>
-        ) : (
-          <span className="text-xl text-gray-400  font-semibold leading-relaxed">
-            {`your in ${
-              parseInt(differance) === 0.0 ? "perfect shape " : "normal weight "
+                ? " فقدان حوالي " + differance.toFixed(2) * -1 + " كغ "
+                : " زيادة حوالي " + differance.toFixed(2) + " كغ "}
+            لتكون في الشكل المثالي.
+        </span>
+    ) : (
+        <span className="text-xl text-gray-400 font-semibold leading-relaxed">
+            {`أنت في ${
+            parseInt(differance) === 0.0 ? "شكل مثالي " : "وزن طبيعي "
             }`}
 
             {parseInt(differance) !== 0 ? (
-              <span>
-                but if u want to get the perfect shape u need to
+            <span>
+                ولكن إذا كنت ترغب في الحصول على الشكل المثالي فستحتاج إلى
                 {differance.toFixed(2) < 0
-                  ? " Loss About " + differance.toFixed(2) * -1 + " KG "
-                  : " Gain About " + differance.toFixed(2) + " KG "}
-              </span>
+                ? " فقدان حوالي " + differance.toFixed(2) * -1 + " كغ "
+                : " زيادة حوالي " + differance.toFixed(2) + " كغ "}
+            </span>
             ) : (
-              ""
+            ""
             )}
-          </span>
-        )}
-      </motion.div>
+        </span>
+    )}
+</motion.div>
+
 
       <motion.button
         whileTap={{ scale: 0.9 }}

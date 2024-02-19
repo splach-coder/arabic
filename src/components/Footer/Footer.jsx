@@ -11,7 +11,7 @@ import {
 
 const iconsVariants = (delay) => {
   return {
-    hidden: { opacity: 0, translateX: 150 },
+    hidden: { opacity: 0, translateX: -150 },
     visible: {
       opacity: 1,
       translateX: 0,
@@ -83,10 +83,8 @@ const Footer = () => {
 
         <div className="w-full bg-white opacity-40 h-[1px]"></div>
 
-        <div className="text-center">
-          © Copyright 2024, All Rights Reserved by
-          <span className="font-bold">T</span>rim
-          <span className="font-bold">D</span>own
+        <div dir="rtl" className="text-center">
+          © حقوق النشر 2024، جميع الحقوق محفوظة لـ سوبرا فيفر
         </div>
       </div>
     </footer>

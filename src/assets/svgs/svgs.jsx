@@ -286,11 +286,11 @@ const Add = ({ addStyle }) => {
           cx="12"
           cy="12"
           r="10"
-          stroke="#153750"
+          stroke="#232323"
           strokeWidth="1.5"></circle>{" "}
         <path
           d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"
-          stroke="#153750"
+          stroke="#232323"
           strokeWidth="1.5"
           strokeLinecap="round"></path>{" "}
       </g>

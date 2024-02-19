@@ -68,20 +68,20 @@ const Testimonials = () => {
           animate={inView ? "visible" : ""}
           variants={titleVariants}
           className="col-span-1">
-          <h1 className="font-primary font-bold text-white text-3xl md:text-6xl md:leading-[70px] tracking-tighter">
-            Trusted By 200+
+          <h1 className="font-primary font-bold text-white text-3xl md:text-6xl md:leading-[70px]">
+            تم الاعتماد عليها من قبل 200 +  من
             <span className="bg-white bg-opacity-30 ms-2 md:ms-0 pe-2">
-              Client
+              {" العملاء "} 
             </span>
           </h1>
           <p className="font-primary text-bold text-base md:text-lg mt-2 md:mt-5 ms-5 md:ms-0">
-            Don't just take our word for it.
+            لا تقتصر على أخذ كلمتنا فقط.
           </p>
         </motion.div>
       </header>
 
       <main className="flex flex-col gap-10">
-        <div className="flex gap-10 relative overflow-x-hidden">
+        <div dir="rtl" className="flex gap-10 relative overflow-x-hidden">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}

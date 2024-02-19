@@ -64,7 +64,7 @@ const Products = ({ openModal }) => {
     <section
       id="products"
       ref={ref}
-      className="bg-white flex flex-col gap-10 md:grid md:grid-cols-3 mb-10 md:mb-0  mt-[25vh] sm:mt-[10vh] md:mt-[25vh] w-full md:h-[100vh] overflow-hidden">
+      className="bg-white flex flex-col gap-10 md:grid md:grid-cols-3 mb-10 w-full md:h-[100vh] overflow-hidden">
       <div className="con md:col-span-2 flex flex-col">
         <motion.div
           ref={elementRef}
@@ -75,9 +75,10 @@ const Products = ({ openModal }) => {
           <span>
             <img src={stars} className="w-8 h-8" alt="stars" loading="lazy" />
           </span>
-          <span className="font-primary font-bold text-black text-2xl md:text-[40px] tracking-tighter">
-            Are you motivated to lose weight <br /> as quickly as possible?
-          </span>
+          <span className="font-primary font-bold text-black text-2xl md:text-[40px]">
+    هل أنت متحفز لفقدان الوزن <br /> بأسرع وقت ممكن؟
+</span>
+
         </motion.div>
 
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6">

@@ -18,11 +18,6 @@ function PopUp({ isOpen, closePopup }) {
   const isMobile = useMediaQuery({ maxWidth: 399 });
   const [margin, setMargin] = useState(0);
 
-  const handleRatingChange = (newRating) => {
-    console.log("New rating:", newRating);
-    // You can handle the rating change here, such as submitting it to a server
-  };
-
   const onSubmit = (data) => {
     // Handle form submission here
     console.log(data);
@@ -50,7 +45,7 @@ function PopUp({ isOpen, closePopup }) {
     setMargin((prevMargin) => (isMobile ? prevMargin - 330 : prevMargin - 380));
     setTimeout(() => {
       closePopup();
-    }, [1000]);
+    }, [1500]);
   };
 
   const container = {
@@ -78,13 +73,14 @@ function PopUp({ isOpen, closePopup }) {
             &times;
           </button>
 
-          <main className="w-full overflow-x-hidden flex gap-10">
+          <main dir="ltr" className="w-full overflow-x-hidden flex gap-10">
             <form
               style={{ marginLeft: margin }}
+              dir="rtl"
               className="flex flex-col gap-3 pb-5 min-w-full"
               onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-col gap-2">
-                <label htmlFor="fullname">Your name</label>
+                <label htmlFor="fullname">اسمك</label>
                 <input
                   type="text"
                   id="fullname"
@@ -94,17 +90,17 @@ function PopUp({ isOpen, closePopup }) {
                       ? "border-red-500 border-opacity-100"
                       : "border-black border-opacity-80"
                   }`}
-                  placeholder="Enter your full name"
+                  placeholder="أدخل اسمك الكامل"
                   {...register("fullname", { required: true })}
                 />
                 {errors.fullname && (
                   <span className="text-red-500 font-semibold text-sm mt-[-8px]">
-                    This field is required
+                    هذا الحقل مطلوب
                   </span>
                 )}
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">عنوان البريد الإلكتروني</label>
                 <input
                   type="email"
                   id="email"
@@ -114,7 +110,7 @@ function PopUp({ isOpen, closePopup }) {
                       ? "border-red-500 border-opacity-100"
                       : "border-black border-opacity-80"
                   }`}
-                  placeholder="Enter your Email"
+                  placeholder="أدخل بريدك الإلكتروني"
                   {...register("email", {
                     required: true,
                     pattern: /^\S+@\S+$/i,
@@ -122,20 +118,19 @@ function PopUp({ isOpen, closePopup }) {
                 />
                 {errors.email && errors.email.type === "required" && (
                   <span className="text-red-500 font-semibold text-sm mt-[-8px]">
-                    This field is required
+                    هذا الحقل مطلوب
                   </span>
                 )}
                 {errors.email && errors.email.type === "pattern" && (
                   <span className="text-red-500 font-semibold text-sm mt-[-8px]">
-                    Invalid email format
+                    تنسيق البريد الإلكتروني غير صالح
                   </span>
                 )}
               </div>
               <div className="flex flex-col gap-2">
-                <h2>Rate this item:</h2>
+                <h2>قيم هذا العنصر:</h2>
                 <Stars
                   count={5}
-                  onChange={handleRatingChange}
                   size={24}
                   color1={"#ccc"}
                   color2={"#ff0"}
@@ -144,11 +139,11 @@ function PopUp({ isOpen, closePopup }) {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="review">Review</label>
+                <label htmlFor="review">المراجعة</label>
                 <textarea
                   name="review"
                   id="review"
-                  placeholder="Add your review"
+                  placeholder="أضف مراجعتك"
                   className={`px-2 py-1 border rounded-sm bg-white ${
                     errors.review
                       ? "border-red-500 border-opacity-100"
@@ -159,7 +154,7 @@ function PopUp({ isOpen, closePopup }) {
                   {...register("review", { required: true })}></textarea>
                 {errors.review && (
                   <span className="text-red-500 font-semibold text-sm mt-[-8px]">
-                    This field is required
+                    هذا الحقل مطلوب
                   </span>
                 )}
               </div>
@@ -168,16 +163,18 @@ function PopUp({ isOpen, closePopup }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.9 }}
                 type="submit"
-                className="font-bold mt-2 text-white text-lg cursor-pointer border rounded-sm border-white px-4 py-2 bg-[#0F182B] transition-colors ease-linear duration-200 w-[150px] mx-auto flex justify-center">
-                Next
+                className="font-bold mt-2 text-white text-lg cursor-pointer border rounded-sm border-white px-4 py-2 bg-gradient-to-tr from-[#808080] to-[#232323] transition-colors ease-linear duration-200 w-[150px] mx-auto flex justify-center">
+                التالي
               </motion.button>
             </form>
 
-            <div className="min-w-[80%] mx-auto flex flex-col gap-10 pb-5 pt-10">
+            <div
+              dir="rtl"
+              className="min-w-[80%] mx-auto flex flex-col gap-10 pb-5 pt-10">
               <div className="w-full border border-dashed border-black rounded-md h-40 flex justify-center items-center">
                 <div className="" {...getRootProps()}>
                   <input {...getInputProps()} />
-                  <span>Browse files</span>
+                  <span>تصفح الملفات</span>
                 </div>
               </div>
 
@@ -186,7 +183,7 @@ function PopUp({ isOpen, closePopup }) {
                   <div key={index} className="relative">
                     <img
                       src={URL.createObjectURL(image)}
-                      alt={`Uploaded ${index}`}
+                      alt={`تم التحميل ${index}`}
                       className=" w-20 h-16 rounded-sm border border-black"
                     />
                     <button
@@ -208,16 +205,18 @@ function PopUp({ isOpen, closePopup }) {
                 whileTap={{ scale: 0.9 }}
                 onClick={ReviewSubmited}
                 type="button"
-                className="font-semibold mt-2 text-white text-lg cursor-pointer border rounded-sm border-white px-4 py-2 bg-[#0F182B] transition-colors ease-linear duration-200 w-[150px] mx-auto flex justify-center">
-                Send Review
+                className="font-semibold mt-2 text-white text-lg cursor-pointer border rounded-sm border-white px-4 py-2 bg-gradient-to-tr from-[#808080] to-[#232323] transition-colors ease-linear duration-200 w-[150px] mx-auto flex justify-center">
+                إرسال المراجعة
               </motion.button>
             </div>
 
-            <div className="min-w-full mx-auto flex flex-col items-center gap-5 pb-5 pt-10">
+            <div
+              dir="rtl"
+              className="min-w-full mx-auto flex flex-col items-center gap-5 pb-5 pt-10">
               <Success addStyle={""} />
 
               <span className="text-[#31F48B] text-2xl font-semibold">
-                Review Submited
+                تم إرسال المراجعة
               </span>
             </div>
           </main>

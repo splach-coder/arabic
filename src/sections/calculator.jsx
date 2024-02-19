@@ -85,13 +85,13 @@ const Calculator = () => {
     setBmi(bmi);
 
     if (bmi < 18.5) {
-      setResult("Underweight");
+      setResult("تحت الوزن الطبيعي");
     } else if (bmi >= 18.5 && bmi < 25) {
-      setResult("Normal weight");
+      setResult("الوزن الطبيعي");
     } else if (bmi >= 25 && bmi < 30) {
-      setResult("Overweight");
+      setResult("زيادة الوزن");
     } else {
-      setResult("Obese");
+      setResult("السمنة");
     }
 
     // Calculate target BMI within the normal weight range

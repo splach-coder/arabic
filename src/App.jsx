@@ -86,15 +86,16 @@ function App() {
         ""
       )}
 
-      {isMobile ? <Products openModal={openImageModal} /> : ""}
-
       {isMobile ? <CoreValue /> : ""}
 
       {isMobile ? <Testimonials /> : ""}
 
+      {/*isMobile ? <Products openModal={openImageModal} /> : ""*/}
+
       {isMobile ? (
-        <section className="h-[30vh] bg-white flex justify-center items-center">
+        <section className="h-[30vh] bg-white flex justify-center items-center overflow-hidden">
           <div
+            dir="rtl"
             ref={ref}
             className="con flex flex-col gap-8 justify-center items-center">
             <motion.h1
@@ -102,19 +103,19 @@ function App() {
               initial="hidden"
               animate={inView ? "visible" : ""}
               variants={titleVariants}
-              className="font-primary text-black text-2xl md:text-[40px] tracking-tighter text-center leading-10">
-              May your{" "}
-              <span className="font-bold py-3 px-4 rounded-md bg-gradient-to-r from-white to-[#153750] bg-opacity-50 ">
-                weight loss
-              </span>{" "}
-              be swift and enjoyable.
+              className="font-primary text-black text-2xl md:text-[40px] text-center leading-10">
+              اجعل
+              <span className="font-bold ms-2 py-3 px-4 rounded-md bg-gradient-to-r from-white to-[#232323] bg-opacity-40 ">
+                {" فقدان وزنك"}
+              </span>
+              {"  سريعًا وممتعًا. "}
             </motion.h1>
             <motion.button
               ref={elementRef}
               initial="hidden"
               animate={inView ? "visible" : ""}
               variants={buttonVariants}
-              className="bg-[#153750] py-1 px-5 md:px-7 rounded-full"
+              className="bg-[#232323] py-1 px-5 md:px-7 rounded-full"
               title="goup">
               <a href="#hero" aria-label="go to the top">
                 <Up addStyle={"w-10 h-10"} />
